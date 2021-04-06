@@ -95,37 +95,37 @@ bamtools stats -insert -in 17H0510082_sorted.bam > 17H0510082_sorted.bamtools.st
 
 **Perform adjustment procedures**
 ```bash
-gatk AddOrReplaceReadGroups -I ${SN}_sorted.bam -O ${SN}_RG.bam --RGID SPACE --RGLB panel --RGPL ILLUMINA --RGPU unit1 --RGSM ${SN}
-gatk MarkDuplicates -I ${SN}_RG.bam -O ${SN}_MD.bam  -M ./stats/${SN}_MD.stats --CREATE_INDEX true
-gatk BaseRecalibrator -R ~/Ref/ucsc.hg19.fasta -I ${SN}_MD.bam -L ~/Ref/myeloid-targets.interval_list -ip 50 --known-sites ~/Ref/dbsnp_138.hg19.vcf --known-sites ~/Ref/Mills_and_1000G_gold_standard.indels.hg19.vcf -O ${SN}_recal_data.table
-gatk ApplyBQSR -R ~/Ref/ucsc.hg19.fasta -I ${SN}_MD.bam --bqsr-recal-file ${SN}_recal_data.table -O ${SN}_BR.bam
+gatk AddOrReplaceReadGroups -I 17H0510082_sorted.bam -O 17H0510082_RG.bam --RGID SPACE --RGLB panel --RGPL ILLUMINA --RGPU unit1 --RGSM 17H0510082
+gatk MarkDuplicates -I 17H0510082_RG.bam -O 17H0510082_MD.bam  -M ./stats/17H0510082_MD.stats --CREATE_INDEX true
+gatk BaseRecalibrator -R ~/Ref/ucsc.hg19.fasta -I 17H0510082_MD.bam -L ~/Ref/myeloid-targets.interval_list -ip 50 --known-sites ~/Ref/dbsnp_138.hg19.vcf --known-sites ~/Ref/Mills_and_1000G_gold_standard.indels.hg19.vcf -O 17H0510082_recal_data.table
+gatk ApplyBQSR -R ~/Ref/ucsc.hg19.fasta -I 17H0510082_MD.bam --bqsr-recal-file 17H0510082_recal_data.table -O 17H0510082_BR.bam
 ```
 
 **Collect QC metrics**
 ```bash
-gatk CollectMultipleMetrics -I ${SN}_BR.bam -O ./stats/${SN}_GATK
-gatk CollectReadCounts -I ${SN}_BR.bam -L ~/Ref/myeloid-targets.interval_list --interval-merging-rule OVERLAPPING_ONLY --format TSV -O ./stats/${SN}.counts.tsv
-gatk CollectHsMetrics -I ${SN}_BR.bam -O ./stats/${SN}_hs_metrics.txt -R ~/Ref/ucsc.hg19.fasta -BI ~/Ref/myeloid-probe-coords.interval_list -TI ~/Ref/myeloid-targets.interval_list
+gatk CollectMultipleMetrics -I 17H0510082_BR.bam -O ./stats/17H0510082_GATK
+gatk CollectReadCounts -I 17H0510082_BR.bam -L ~/Ref/myeloid-targets.interval_list --interval-merging-rule OVERLAPPING_ONLY --format TSV -O ./stats/17H0510082.counts.tsv
+gatk CollectHsMetrics -I 17H0510082_BR.bam -O ./stats/17H0510082_hs_metrics.txt -R ~/Ref/ucsc.hg19.fasta -BI ~/Ref/myeloid-probe-coords.interval_list -TI ~/Ref/myeloid-targets.interval_list
 ```
 
 **Perform variant calling by Mutect2**
 ```bash
-gatk Mutect2 -R ~/Ref/ucsc.hg19.fasta -I ${SN}_BR.bam -tumor ${SN} -L ~/Ref/myeloid-targets.interval_list  -germline-resource ~/Ref/af-only-gnomad.myeloid.bedtools.vcf.gz --f1r2-tar-gz f1r2.tar.gz -O ${SN}_unfiltered.vcf
+gatk Mutect2 -R ~/Ref/ucsc.hg19.fasta -I 17H0510082_BR.bam -tumor 17H0510082 -L ~/Ref/myeloid-targets.interval_list  -germline-resource ~/Ref/af-only-gnomad.myeloid.bedtools.vcf.gz --f1r2-tar-gz f1r2.tar.gz -O 17H0510082_unfiltered.vcf
 gatk LearnReadOrientationModel -I f1r2.tar.gz -O read-orientation-model.tar.gz
-gatk GetPileupSummaries -I ${SN}_BR.bam -V ~/Ref/small_exac_common_myeloid.vcf.gz -L ~/Ref/small_exac_common_myeloid.vcf.gz  -O getpileupsummaries.table
+gatk GetPileupSummaries -I 17H0510082_BR.bam -V ~/Ref/small_exac_common_myeloid.vcf.gz -L ~/Ref/small_exac_common_myeloid.vcf.gz  -O getpileupsummaries.table
 gatk CalculateContamination -I getpileupsummaries.table  -O calculatecontamination.table
-gatk FilterMutectCalls -R ~/Ref/ucsc.hg19.fasta -V ${SN}_unfiltered.vcf --contamination-table calculatecontamination.table --ob-priors read-orientation-model.tar.gz -O ${SN}_filtered.vcf
+gatk FilterMutectCalls -R ~/Ref/ucsc.hg19.fasta -V 17H0510082_unfiltered.vcf --contamination-table calculatecontamination.table --ob-priors read-orientation-model.tar.gz -O $17H0510082_filtered.vcf
 ```
 *Inspect content of VCF file.
 
 **Filter variants**
 ```bash 
-bcftools filter -i " FORMAT/AF > 0.05 " ${SN}_filtered.vcf -o ${SN}_filtered_0.05.vcf
+bcftools filter -i " FORMAT/AF > 0.05 " 17H0510082_filtered.vcf -o 17H0510082_filtered_0.05.vcf
 ```
 
 **Perform variant annotation by ANNOVAR**
 ```bash
-perl ~/Programs/annovar/table_annovar.pl ${SN}_filtered_0.05.vcf ~/Programs/annovar/humandb/ -buildver hg19 -out ${SN}_filtered_annotate -remove -protocol refGene,cosmic86,clinvar_20170905,exac03nontcga,gnomad_exome -operation g,f,f,f,f -nastring . -vcfinput
+perl ~/Programs/annovar/table_annovar.pl 17H0510082_filtered_0.05.vcf ~/Programs/annovar/humandb/ -buildver hg19 -out 17H0510082_filtered_annotate -remove -protocol refGene,cosmic86,clinvar_20170905,exac03nontcga,gnomad_exome -operation g,f,f,f,f -nastring . -vcfinput
 ```
 *Inspect variants in IGV.
 
