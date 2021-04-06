@@ -5,11 +5,19 @@ In this session. we will build a toy bioinformatic pipeline to get a feel of wha
 
 This session does not assume any Linux command-line skills from you. We will try to learn a few important Linux commands on-the-fly while we learn how to build our toy bioinformatic pipeline.
 
+### Before the Practical Session...
+
+Everyone of you should have received an invitation email from Microsoft Azure to register for this lab. In the email, click the tab "Register for the lab>" and follow the instructions to complete the registration process. If you are successful, you will arrive at a Azure Lab Services webpage with the header saying "My virtual machines". On the webpage, there is a virtual machine "DNAseqAML" waiting for you. If you reach this, you are prepared for the practical session.
+
+You will notice the virtual machine is "Stopped". At this stage, please do not start the machine yet, as you will consume the assigned time for the session.
+
 ### Login to Azure Lab Services and Get Things Started
 
-Everyone of you should have received an invitation email from Microsoft Azure to register for this lab. In the email, click the tab "Register for the lab>" and follow the instructions to complete the registration process. If you are successful, you will arrive at a Azure Lab Services webpage with the header saying "My virtual machines". On the webpage, there is a virtual machine "DNAseqAML" waiting for you. If you reach this, you are prepared for the practical session. At this stage, please do not start the machine yet, as you will use up the assigned time for the session.
-
 Before we begin with our discussion, let's take the time to initialise our Azure Lab Services and set our passwords, as these will take some time before you can login to the system.
+
+1. Login to [My Virtual Machines](https://labs.azure.com/virtualmachines) in Azure Lab Services.
+2. Start the DNAseqAML virtual machine.
+3. 
 
 ### GATK Best Practice for Somatic SNVs and Indels
 
