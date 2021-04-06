@@ -1,4 +1,4 @@
-# BBMS3004 Molecular Diagnostics Laboratory (2020-2021)
+# BBMS3004 Molecular Diagnostics Laboratory (2021)
 ## Practical: Targeted Sequencing and Its Clinical Application in Acute Myeloid Leukaemia
 
 In this session. we will build a toy bioinformatic pipeline to get a feel of what it is like to practice bioinformatics using Linux. Our platform will be [Azure Lab Services](https://labs.azure.com/), which is a Microsoft cloud computing platform.
@@ -23,6 +23,31 @@ Before we begin with our discussion, let's take the time to initialise our Azure
 
 After you have login to our virtual machine, please follow the instructions in class to explore the environment.
 
+### Basic Linux Commands
+This section summarises the important Linux commands that will be useful during the practical session.
+
+**Command: Show present working directory**
+```bash
+pwd
+```
+
+**Command: List files and sub-directories in the current directory**
+```bash
+ls
+ll -h
+```
+
+**Command: Change directory**
+```bash
+cd subdirectory               # Change to sub-directory
+cd ..                         # Change to parent directory
+```
+
+**Command: Make a new directory**
+```bash
+mkdir newdirectory
+```
+
 ### GATK Best Practice for Somatic SNVs and Indels
 
 We will try to build a pipeline according [GATK Best Practices for somatic SNVs and indels](https://software.broadinstitute.org/gatk/best-practices/workflow?id=11146). Other GATK Best Practices pipelines can be found in the menu of the website as well.
@@ -31,21 +56,10 @@ We will try to build a pipeline according [GATK Best Practices for somatic SNVs 
 
 While we are trying to build a useable bioinformatic pipeline, but as some elements of this pipeline has been abridged to suit the computer resources and running time in the teaching session, this pipeline should NOT be used for any other purposes, including clinical practice and research.
 
-
 **Change directory to the correct folder and create directory for QC statistics output**
 ```bash
-cd ~/Documents/practical3
+cd Documents
 mkdir stats
-```
-
-**Inspect quality metrics using FastQC**
-
-*Inspect content of [fastq](https://en.wikipedia.org/wiki/FASTQ_format) file.
-
-Run [FastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/) for quality check:
-
-```bash
-fastqc ${SN}_1.fastq.gz ${SN}_2.fastq.gz --outdir=stats
 ```
 
 **Perform adaptor and quality trimming using Trimmomatic**
@@ -55,7 +69,7 @@ Run [Trimmomatic](http://www.usadellab.org/cms/uploads/supplementary/Trimmomatic
 ```bash
 cp ~/Programs/Trimmomatic-0.39/adapters/TruSeq3-PE-2.fa ./
 
-java -jar ~/Programs/Trimmomatic-0.39/trimmomatic-0.39.jar PE -phred33 ${SN}_1.fastq.gz ${SN}_2.fastq.gz ${SN}_1_trimmed_paired.fq.gz ${SN}_1_trimmed_unpaired.fq.gz ${SN}_2_trimmed_paired.fq.gz ${SN}_2_trimmed_unpaired.fq.gz ILLUMINACLIP:TruSeq3-PE-2.fa:2:30:10 LEADING:10 TRAILING:10 SLIDINGWINDOW:4:15 MINLEN:40
+java -jar ~/Programs/Trimmomatic-0.39/trimmomatic-0.39.jar PE -phred33 17H0510082_1.fastq.gz 17H0510082_2.fastq.gz 17H0510082_1_trimmed_paired.fq.gz 17H0510082_1_trimmed_unpaired.fq.gz 17H0510082_2_trimmed_paired.fq.gz 17H0510082_2_trimmed_unpaired.fq.gz ILLUMINACLIP:TruSeq3-PE-2.fa:2:30:10 LEADING:10 TRAILING:10 SLIDINGWINDOW:4:15 MINLEN:40
 ```
 *Please try to run fastqc again on the 2 adaptor and quality trimmed paired fastq files.
 
@@ -64,27 +78,19 @@ java -jar ~/Programs/Trimmomatic-0.39/trimmomatic-0.39.jar PE -phred33 ${SN}_1.f
 Sequencing mapping by [BWA](http://bio-bwa.sourceforge.net/)
 
 ```bash
-bwa mem -t 1 -M ~/Ref/ucsc.hg19.fasta ${SN}_1_trimmed_paired.fq.gz ${SN}_2_trimmed_paired.fq.gz > ${SN}.sam
-```
-
-**Switch between Java versions**
-
-Switch to Java v8 for GATK analysis
-```bash
-sudo update-alternatives --config java
-gatk --list
+bwa mem -t 1 -M ~/Ref/ucsc.hg19.fasta 17H0510082_1_trimmed_paired.fq.gz 17H0510082_2_trimmed_paired.fq.gz > 17H0510082.sam
 ```
 
 **Perform sorting on SAM file and convert to BAM**
 ```bash
-gatk SortSam -I ${SN}.sam -O ${SN}_sorted.bam --SORT_ORDER coordinate
+gatk SortSam -I 17H0510082.sam -O 17H0510082_sorted.bam --SORT_ORDER coordinate
 ```
 *Inspect content of SAM and BAM files
 
 **Collect statistics from BAM file**
 Determine mappable read number:
 ```bash
-bamtools stats -insert -in ${SN}_sorted.bam > ${SN}_sorted.bamtools.stats
+bamtools stats -insert -in 17H0510082_sorted.bam > 17H0510082_sorted.bamtools.stats
 ```
 
 **Perform adjustment procedures**
