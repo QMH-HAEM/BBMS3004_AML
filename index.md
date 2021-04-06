@@ -135,7 +135,7 @@ To run the above steps in a single command, you can run this [shell script](http
 
 **Running a shell script**
 ```bash
-bash toyPipeline.sh aml
+bash toyPipeline.sh 17H0510082
 ```
 
 ### Inspecting a BAM file
