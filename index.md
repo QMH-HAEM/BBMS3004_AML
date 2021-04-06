@@ -118,7 +118,7 @@ gatk Mutect2 -R ~/Ref/ucsc.hg19.fasta -I 17H0510082_BR.bam -tumor 17H0510082 -L 
 gatk LearnReadOrientationModel -I f1r2.tar.gz -O read-orientation-model.tar.gz
 gatk GetPileupSummaries -I 17H0510082_BR.bam -V ~/Ref/small_exac_common_myeloid.vcf.gz -L ~/Ref/small_exac_common_myeloid.vcf.gz  -O getpileupsummaries.table
 gatk CalculateContamination -I getpileupsummaries.table  -O calculatecontamination.table
-gatk FilterMutectCalls -R ~/Ref/ucsc.hg19.fasta -V 17H0510082_unfiltered.vcf --contamination-table calculatecontamination.table --ob-priors read-orientation-model.tar.gz -O $17H0510082_filtered.vcf
+gatk FilterMutectCalls -R ~/Ref/ucsc.hg19.fasta -V 17H0510082_unfiltered.vcf --contamination-table calculatecontamination.table --ob-priors read-orientation-model.tar.gz -O 17H0510082_filtered.vcf
 ```
 *Inspect content of VCF file.
 
