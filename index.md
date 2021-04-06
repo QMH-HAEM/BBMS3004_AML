@@ -86,15 +86,15 @@ gatk SortSam -I 17H0510082.sam -O 17H0510082_sorted.bam --SORT_ORDER coordinate
 ```
 *Inspect content of SAM and BAM files
 
+**Inspecting a BAM file**
+```bash
+samtools view 17H0510082_BR.bam | less -S
+```
+
 **Collect statistics from BAM file**
 Determine mappable read number:
 ```bash
 bamtools stats -insert -in 17H0510082_sorted.bam > 17H0510082_sorted.bamtools.stats
-```
-
-**Inspecting a BAM file**
-```bash
-samtools view 17H0510082_BR.bam | less -S
 ```
 
 **Perform adjustment procedures**
