@@ -140,5 +140,5 @@ bash toyPipeline.sh 17H0510082
 
 ### Inspecting a BAM file
 ```bash
-samtools view aml_BR.bam | less -S
+samtools view 17H0510082_BR.bam | less -S
 ```
