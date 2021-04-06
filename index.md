@@ -34,7 +34,6 @@ pwd
 **Command: List files and sub-directories in the current directory**
 ```bash
 ls
-ll -h
 ```
 
 **Command: Change directory**
@@ -78,7 +77,7 @@ java -jar ~/Programs/Trimmomatic-0.39/trimmomatic-0.39.jar PE -phred33 17H051008
 Sequencing mapping by [BWA](http://bio-bwa.sourceforge.net/)
 
 ```bash
-bwa mem -t 1 -M ~/Ref/ucsc.hg19.fasta 17H0510082_1_trimmed_paired.fq.gz 17H0510082_2_trimmed_paired.fq.gz > 17H0510082.sam
+bwa mem -t 4 -M ~/Ref/ucsc.hg19.fasta 17H0510082_1_trimmed_paired.fq.gz 17H0510082_2_trimmed_paired.fq.gz > 17H0510082.sam
 ```
 
 **Perform sorting on SAM file and convert to BAM**
