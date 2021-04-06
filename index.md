@@ -92,6 +92,11 @@ Determine mappable read number:
 bamtools stats -insert -in 17H0510082_sorted.bam > 17H0510082_sorted.bamtools.stats
 ```
 
+**Inspecting a BAM file**
+```bash
+samtools view 17H0510082_BR.bam | less -S
+```
+
 **Perform adjustment procedures**
 ```bash
 gatk AddOrReplaceReadGroups -I 17H0510082_sorted.bam -O 17H0510082_RG.bam --RGID SPACE --RGLB panel --RGPL ILLUMINA --RGPU unit1 --RGSM 17H0510082
@@ -135,9 +140,4 @@ To run the above steps in a single command, you can run this [shell script](http
 **Running a shell script**
 ```bash
 bash toyPipeline.sh 17H0510082
-```
-
-### Inspecting a BAM file
-```bash
-samtools view 17H0510082_BR.bam | less -S
 ```
