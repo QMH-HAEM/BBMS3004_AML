@@ -3,7 +3,7 @@
 
 In this session. we will build a toy bioinformatic pipeline to get a feel of what it is like to practice bioinformatics using Linux. Our platform will be [Azure Lab Services](https://labs.azure.com/), which is a Microsoft cloud computing platform.
 
-This session does not assume any Linux command-line skills from you. We will try to learn Linux command-line skills on-the-fly while we learn how to build bioinformatic pipeline.
+This session does not assume any Linux command-line skills from you. We will try to learn a few important Linux commands on-the-fly while we learn how to build our toy bioinformatic pipeline.
 
 ### GATK Best Practice for Somatic SNVs and Indels
 
