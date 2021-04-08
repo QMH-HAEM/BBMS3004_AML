@@ -47,6 +47,11 @@ cd ..                         # Change to parent directory
 mkdir newdirectory
 ```
 
+**Command: Copy a file**
+```bash
+cp ../abc.txt ./              # Copy abc.txt from the parent directory to the current directory
+```
+
 ### GATK Best Practice for Somatic SNVs and Indels
 
 We will try to build a pipeline according [GATK Best Practices for Data Preprocessing](https://gatk.broadinstitute.org/hc/en-us/articles/360035535912) and [GATK Best Practices for somatic SNVs and indels](https://gatk.broadinstitute.org/hc/en-us/articles/360035894731-Somatic-short-variant-discovery-SNVs-Indels-). Other GATK Best Practices pipelines can be found in the menu of the website as well.
