@@ -135,7 +135,7 @@ perl ~/Programs/annovar/table_annovar.pl 17H1220080_filtered_0.05.vcf ~/Programs
 
 ### A Wrapped Bioinformatic Pipeline
 
-To run the above steps in a single command, you can run this [shell script](https://raw.githubusercontent.com/QMH-HAEM/BBMS3004_AML/main/toyPipeline.sh), which contains all the commands above.
+To run the above steps in a single command, you can run the toyPipeline.sh shell script, which contains all the commands you have entered above, in the following manner.
 
 **Running a shell script**
 ```bash
