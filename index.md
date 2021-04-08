@@ -141,3 +141,7 @@ To run the above steps in a single command, you can run the toyPipeline.sh shell
 ```bash
 bash toyPipeline.sh 17H1220080
 ```
+
+### Visualisation of Sequencing Data in IGV
+
+To visualise the sequencing data, you can download the [BAM file] produced after base recalibration, along with its [index file], and load the BAM file into IGV for visualisation. Please make sure you have selected hg19 human reference genome for visualisation. You may input the chromosome number and genomic coordinate of a variant in IGV to visualise it, e.g. for the IDH1 R132 variant, you can enter chr2:209113112.
