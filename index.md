@@ -7,7 +7,7 @@ This session does not assume any Linux command-line skills from you. We will try
 
 ### Before the Practical Session...
 
-Everyone of you should have received an invitation email from Microsoft Azure to register for this lab. In the email, click the tab "Register for the lab>" and follow the instructions to complete the registration process. If you are successful, you will arrive at a Azure Lab Services webpage with the header saying "My virtual machines". On the webpage, there is a virtual machine "DNAseqAML" waiting for you. If you reach this, you are prepared for the practical session.
+Everyone of you should have received an invitation email from Microsoft Azure to register for this lab. In the email, click the tab "Register for the lab>" and follow the instructions to complete the registration process. If you are successful, you will arrive at a Azure Lab Services webpage with the header saying "My virtual machines". On the webpage, there is a virtual machine "NGSinAML" waiting for you. If you reach this, you are prepared for the practical session.
 
 You will notice the virtual machine is "Stopped". At this stage, please do not start the machine yet, as you will consume the assigned time for the session.
 
@@ -16,10 +16,10 @@ You will notice the virtual machine is "Stopped". At this stage, please do not s
 Before we begin with our discussion, let's take the time to initialise our Azure Lab Services and set our passwords, as these will take some time before you can login to the system.
 
 1. Login to [My Virtual Machines](https://labs.azure.com/virtualmachines) in Azure Lab Services.
-2. Click the switch of the DNAseqAML virtual machine to start it. This will take a few minutes. (If you are logging in for the first time, the system will ask you to set a new password. Proceed accordingly.)
+2. Click the switch of the NGSinAML virtual machine to start it. This will take a few minutes. (If you are logging in for the first time, the system will ask you to set a new password. Proceed accordingly.)
 3. When the virtual machine shows "Running", click on the little monitor at the lower right hand corner of the virtual machine tab. Click "Connect via SSH". A link will be shown.
 4. Login to the virtual machine by PuTTY (for Windows) or in the terminal (for Mac OS) according to the instruction in class.
-5. When you finish using the virtual machine. Type "exit" into the Linux shell to quit the session AND click the switch of the DNAseqAML in the webpage to stop it.
+5. When you finish using the virtual machine. Type "exit" into the Linux shell to quit the session AND click the switch of the NGSinAML in the webpage to stop it.
 
 After you have login to our virtual machine, please follow the instructions in class to explore the environment.
 
