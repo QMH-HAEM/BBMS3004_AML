@@ -75,7 +75,6 @@ cp ~/Programs/Trimmomatic-0.39/adapters/TruSeq3-PE-2.fa ./
 
 java -jar ~/Programs/Trimmomatic-0.39/trimmomatic-0.39.jar PE -phred33 17H1220080_1.fastq.gz 17H1220080_2.fastq.gz 17H1220080_1_trimmed_paired.fq.gz 17H1220080_1_trimmed_unpaired.fq.gz 17H1220080_2_trimmed_paired.fq.gz 17H1220080_2_trimmed_unpaired.fq.gz ILLUMINACLIP:TruSeq3-PE-2.fa:2:30:10 LEADING:10 TRAILING:10 SLIDINGWINDOW:4:15 MINLEN:40
 ```
-*Please try to run fastqc again on the 2 adaptor and quality trimmed paired fastq files.
 
 **Perform sequence alignment by BWA**
 
