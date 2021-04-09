@@ -7,7 +7,7 @@ This session does not assume any Linux command-line skills from you. We will try
 
 ### Before the Practical Session...
 
-Everyone of you should have received an invitation email from Microsoft Azure to register for this lab. In the email, click the tab "Register for the lab>" and follow the instructions to complete the registration process. If you are successful, you will arrive at a Azure Lab Services webpage with the header saying "My virtual machines". On the webpage, there is a virtual machine "NGSinAML" waiting for you. If you reach this, you are prepared for the practical session.
+Everyone of you should have received an invitation email from Microsoft Azure to register for this lab. In the email, click the tab "Register for the lab>" and follow the instructions to complete the registration process. You should use your email with the address ending in "connect.hku.hk" to register. If you are successful, you will arrive at a Azure Lab Services webpage with the header saying "My virtual machines". On the webpage, there is a virtual machine "NGSinAML" waiting for you. If you reach this, you are prepared for the practical session.
 
 You will notice the virtual machine is "Stopped". At this stage, please do not start the machine yet, as you will consume the assigned time for the session.
 
