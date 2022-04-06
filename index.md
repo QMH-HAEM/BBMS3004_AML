@@ -18,10 +18,10 @@ You will notice the virtual machine is "Stopped". At this stage, please do not s
 Before we begin with our discussion, let's take the time to initialise our Azure Lab Services and set our passwords, as these will take some time before you can login to the system.
 
 1. Login to [My Virtual Machines](https://labs.azure.com/virtualmachines) in Azure Lab Services.
-2. Click the switch of the NGSinAML virtual machine to start it. This will take a few minutes. (If you are logging in for the first time, the system will ask you to set a new password. Proceed accordingly.)
+2. Click the switch of the "NGS in AML" virtual machine to start it. This will take a few minutes. (If you are logging in for the first time, the system will ask you to set a new password. Proceed accordingly.)
 3. When the virtual machine shows "Running", click on the little monitor at the lower right hand corner of the virtual machine tab. Click "Connect via SSH". A link will be shown.
-4. Login to the virtual machine by PuTTY (for Windows) or in the terminal (for Mac OS).
-5. When you finish using the virtual machine. Type "exit" into the Linux shell to quit the session AND click the switch of the NGSinAML in the webpage to stop it.
+4. Login to the virtual machine by PuTTY (for Windows) or in the terminal (for Mac OS, search for "Terminal" in Spotlight). For PuTTY, follow the instructions in the PowerPoint slides. For Mac terminal, simply paste the command (starting with "ssh ...") generated in Azure.
+5. When you finish using the virtual machine. Type "exit" into the Linux shell to quit the session AND click the switch of the "NGS in AML" in the webpage to stop it.
 
 After you have login to our virtual machine, please follow the instructions in the video to explore the Linux environment.
 
