@@ -66,7 +66,7 @@ cd Documents
 mkdir stats
 ```
 
-Before the start of analysis, the usual step is to inspect the basic quality of the sequencing data. A common software to use is [FastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/). Since the output of FastQC is in html format and cannot be visualised in our current server setup, this step will be demonstrated instead. To inspect the output of the FastQC step for our data, please refer to [FastQC output for 17H1220080_1.fastq.gz](https://github.com/QMH-HAEM/BBMS3004_AML/raw/main/17H1220080_1_fastqc.html) and [FastQC output for 17H1220080_2.fastq.gz](https://github.com/QMH-HAEM/BBMS3004_AML/raw/main/17H1220080_2_fastqc.html).
+Before the start of analysis, the usual step is to inspect the basic quality of the sequencing data. A common software to use is [FastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/). Since the output of FastQC is in html format and cannot be visualised in our current server setup, this step will be demonstrated instead. To inspect the output of the FastQC step for our data, please refer to [FastQC output for 17H1220080_1.fastq.gz](https://htmlpreview.github.io/?https://github.com/QMH-HAEM/BBMS3004_AML/blob/main/17H1220080_1_fastqc.html) and [FastQC output for 17H1220080_2.fastq.gz](https://htmlpreview.github.io/?https://github.com/QMH-HAEM/BBMS3004_AML/blob/main/17H1220080_2_fastqc.html).
 
 **Perform adaptor and quality trimming using Trimmomatic**
 
