@@ -5,6 +5,8 @@ In this session. we will build a toy bioinformatic pipeline to get a feel of wha
 
 This session does not assume any Linux command-line skills from you. We will try to learn a few important Linux commands on-the-fly while we learn how to build our toy bioinformatic pipeline. But due to COVID-19 wave, this session will not be held in a face-to-face manner. This may increase the difficulties a little bit when you start using the platform, but we will organise a face-to-face Zoom question-and-answer session to address any problem that you may have.
 
+Please be assured that this practical serves to give you some hands-on experience in dealing with NGS sequencing data. You will not be asked about command-line operation in your examination.
+
 ### Before the Practical Session...
 
 Everyone of you should have received an invitation email from Microsoft Azure to register for this lab. In the email, click the tab "Register for the lab>" and follow the instructions to complete the registration process. You should use your email with the address ending in "connect.hku.hk" to register. If you are successful, you will arrive at a Azure Lab Services webpage with the header saying "My virtual machines". On the webpage, there is a virtual machine "NGS in AML" waiting for you. If you reach this, you are prepared for the practical session. In case you come across an error message that reads "You do not have permission to access this lab...", please email me at iphowan@hku.hk and let me know your email address that ends with "connect.hku.hk".
@@ -24,7 +26,7 @@ Before we begin with our discussion, let's take the time to initialise our Azure
 After you have login to our virtual machine, please follow the instructions in the video to explore the Linux environment.
 
 ### Basic Linux Commands
-This section summarises the important Linux commands that will be useful during the practical session.
+This section summarises the important Linux commands that will be useful during the practical session. In case you are very interested in learning about Linux command-line operation, you may want to go through an [online tutorial course](https://rnabio.org/module-00-setup/0000/08/01/Unix/).
 
 **Command: Show present working directory**
 ```bash
