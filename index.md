@@ -1,9 +1,9 @@
-# BBMS3004 Molecular Diagnostics Laboratory (2021)
+# BBMS3004 Molecular Diagnostics Laboratory (2022)
 ## Practical: Targeted Sequencing and Its Clinical Application in Acute Myeloid Leukaemia
 
 In this session. we will build a toy bioinformatic pipeline to get a feel of what it is like to practice bioinformatics using Linux. Our platform will be [Azure Lab Services](https://labs.azure.com/), which is a Microsoft cloud computing platform.
 
-This session does not assume any Linux command-line skills from you. We will try to learn a few important Linux commands on-the-fly while we learn how to build our toy bioinformatic pipeline.
+This session does not assume any Linux command-line skills from you. We will try to learn a few important Linux commands on-the-fly while we learn how to build our toy bioinformatic pipeline. But due to COVID-19 wave, this session will not be held in a face-to-face manner. This may increase the difficulties a little bit when you start using the platform, but we will organise a face-to-face Zoom question-and-answer session to address any problem that you may have.
 
 ### Before the Practical Session...
 
