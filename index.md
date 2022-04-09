@@ -11,7 +11,7 @@ Please be assured that this practical serves to give you some hands-on experienc
 
 Everyone of you should have received an invitation email from Microsoft Azure to register for this lab. In the email, click the tab "Register for the lab>" and follow the instructions to complete the registration process. You should use your email with the address ending in "connect.hku.hk" to register. If you are successful, you will arrive at a Azure Lab Services webpage with the header saying "My virtual machines". On the webpage, there is a virtual machine "NGS in AML" waiting for you. If you reach this, you are prepared for the practical session. In case you come across an error message that reads "You do not have permission to access this lab...", please email me at iphowan@hku.hk and let me know your email address that ends with "connect.hku.hk".
 
-You will notice the virtual machine is "Stopped". At this stage, please do not start the machine yet, otherwise you will consume the assigned time for the session.
+You will notice the virtual machine is "Stopped". Please start the machine only when you are ready to go through the session, as a running machine will consume your assigned quota of 4 hours (per student).
 
 ### Login to Azure Lab Services and Get Things Started
 
@@ -159,3 +159,7 @@ bash toyPipeline.sh 17H1220080
 ### Visualisation of Sequencing Data in IGV
 
 To visualise the sequencing data, you can download the [BAM file](https://github.com/QMH-HAEM/BBMS3004_AML/raw/main/17H1220080_BR.bam) produced after base recalibration, along with its [index file](https://github.com/QMH-HAEM/BBMS3004_AML/raw/main/17H1220080_BR.bai), and load the BAM file into IGV for visualisation. Please make sure you have selected hg19 human reference genome for visualisation. You may input the chromosome number and genomic coordinate of a variant in IGV to visualise it, e.g. for the IDH1 R132 variant, you can enter chr2:209113112.
+
+### After the session
+
+Thank you for going through this session. If you have any inquiry regarding the course content or issues with running the server, please do not hesitate to email me. After the date of our session, the virtual machines will be kept open for your access until after the examination. Do feel free to explore the Linux platform until your assigned time has been used up.
