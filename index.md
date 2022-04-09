@@ -158,7 +158,7 @@ bash toyPipeline.sh 17H1220080
 
 ### Visualisation of Sequencing Data in IGV
 
-To visualise the sequencing data, you can download the [BAM file](https://github.com/QMH-HAEM/BBMS3004_AML/raw/main/17H1220080_BR.bam) produced after base recalibration, along with its [index file](https://github.com/QMH-HAEM/BBMS3004_AML/raw/main/17H1220080_BR.bai), and load the BAM file into IGV for visualisation. Please make sure you have selected hg19 human reference genome for visualisation. You may input the chromosome number and genomic coordinate of a variant in IGV to visualise it, e.g. for the IDH1 R132 variant, you can enter chr2:209113112.
+To visualise the sequencing data, you can download the [BAM file](https://github.com/QMH-HAEM/BBMS3004_AML/raw/main/17H1220080_BR.bam) produced after base recalibration, along with its [index file](https://github.com/QMH-HAEM/BBMS3004_AML/raw/main/17H1220080_BR.bai), and load the BAM file into [IGV](https://software.broadinstitute.org/software/igv/download) for visualisation. Please make sure you have selected hg19 human reference genome for visualisation. You may input the chromosome number and genomic coordinate of a variant in IGV to visualise it, e.g. for the IDH1 R132 variant, you can enter chr2:209113112.
 
 ### After the session
 
