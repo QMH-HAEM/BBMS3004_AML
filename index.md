@@ -54,6 +54,12 @@ mkdir newdirectory
 cp ../abc.txt ./              # Copy abc.txt from the parent directory to the current directory
 ```
 
+**Command: Read the contents of a file**
+```bash
+less -S ucsc.hg19.fasta              # View the human reference genome hg19 (in fasta format)
+zless -S 17H1220080_1.fastq.gz       # View the zipped fastq file of the AML patient (in gzipped fastq format)
+```
+
 ### GATK Best Practice for Somatic SNVs and Indels
 
 We will try to build a pipeline according [GATK Best Practices for Data Preprocessing](https://gatk.broadinstitute.org/hc/en-us/articles/360035535912) and [GATK Best Practices for somatic SNVs and indels](https://gatk.broadinstitute.org/hc/en-us/articles/360035894731-Somatic-short-variant-discovery-SNVs-Indels-). Other GATK Best Practices pipelines can be found in the menu of the website as well.
