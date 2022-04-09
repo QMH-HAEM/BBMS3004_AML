@@ -147,7 +147,7 @@ perl ~/Programs/annovar/table_annovar.pl 17H1220080_filtered_0.05.vcf ~/Programs
 ```
 *Inspect variants in IGV.
 
-You may find it a bit difficult to view the VCF file in the command-line interface. Another option is to download the [annotated file](https://github.com/QMH-HAEM/BBMS3004_AML/raw/main/17H1220080_filtered_annotate.hg19_multianno.txt) to your computer and view it using your spreadsheet viewer.
+You may find it a bit difficult to view the VCF file in the command-line interface. Another option is to download the [annotated file](https://htmlpreview.github.io/?https://github.com/QMH-HAEM/BBMS3004_AML/raw/main/17H1220080_filtered_annotate.hg19_multianno.txt) to your computer and view it using your spreadsheet viewer.
 
 ### A Wrapped Bioinformatic Pipeline
 
