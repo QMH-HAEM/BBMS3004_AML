@@ -23,8 +23,6 @@ Before we begin with our discussion, let's take the time to initialise our Azure
 4. Login to the virtual machine by PuTTY (for Windows) or in the terminal (for Mac OS, search for "Terminal" in Spotlight). For PuTTY, follow the instructions in the PowerPoint slides. For Mac terminal, simply paste the command (starting with "ssh ...") generated in Azure.
 5. When you finish using the virtual machine. Type "exit" into the Linux shell to quit the session AND click the switch of the "NGS in AML" in the webpage to stop it.
 
-After you have login to our virtual machine, please follow the instructions in the video to explore the Linux environment.
-
 ### Basic Linux Commands
 This section summarises the important Linux commands that will be useful during the practical session. In case you are very interested in learning about Linux command-line operation, you may want to go through an [online tutorial course](https://rnabio.org/module-00-setup/0000/08/01/Unix/).
 
