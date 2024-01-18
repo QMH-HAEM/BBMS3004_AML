@@ -1,17 +1,15 @@
-# BBMS3004 Molecular Diagnostics Laboratory (2023)
+# BBMS3004 Molecular Diagnostics Laboratory (2024)
 ## Practical: Targeted Sequencing and Its Clinical Application in Acute Myeloid Leukaemia
 
 In this session. we will build a toy bioinformatic pipeline to get a feel of what it is like to practice bioinformatics using Linux. Our platform will be [Azure Lab Services](https://labs.azure.com/), which is a Microsoft cloud computing platform.
 
-This session does not assume any Linux command-line skills from you. We will try to learn a few important Linux commands on-the-fly while we learn how to build our toy bioinformatic pipeline. But due to COVID-19 wave, this session will not be held in a face-to-face manner. This may increase the difficulties a little bit when you start using the platform, but we will organise a face-to-face Zoom question-and-answer session to address any problem that you may have.
-
-This practical serves to give you some hands-on experience in dealing with NGS sequencing data.
+This session does not assume any Linux command-line skills from you. We will try to learn a few important Linux commands on-the-fly while we learn how to build our toy bioinformatic pipeline. This practical serves to give you some hands-on experience in dealing with NGS sequencing data.
 
 ### Before the Practical Session...
 
 Everyone of you should have received an invitation email from Microsoft Azure to register for this lab. In the email, click the tab "Register for the lab>" and follow the instructions to complete the registration process. **You should use your email with the address ending in "connect.hku.hk" to register.** If you are successful, you will arrive at a Azure Lab Services webpage with the header saying "My virtual machines". On the webpage, there is a virtual machine "NGS in AML" waiting for you. If you reach this, you are prepared for the practical session. In case you come across an error message that reads "You do not have permission to access this lab...", please email me at iphowan@hku.hk and let me know your email address that ends with "connect.hku.hk".
 
-You will notice the virtual machine is "Stopped". Please start the machine only when you are ready to go through the session, as a running machine will consume your assigned quota of 4 hours (per student).
+You will notice the virtual machine is "Stopped". Please do not start the machine until you are ready to go through the session, as a running machine will consume your assigned quota of 4 hours (per student). If you have started the machine, please make sure you turn it off when you are not using it, as the machine will continue to run in the background and consume your assigned time.
 
 ### Login to Azure Lab Services and Get Things Started
 
@@ -24,7 +22,7 @@ Before we begin with our discussion, let's take the time to initialise our Azure
 5. When you finish using the virtual machine. Type "exit" into the Linux shell to quit the session AND click the switch of the "NGS in AML" in the webpage to stop it.
 
 ### Basic Linux Commands
-This section summarises the important Linux commands that will be useful during the practical session. In case you are very interested in learning about Linux command-line operation, you may want to go through an [online tutorial course](https://rnabio.org/module-00-setup/0000/08/01/Unix/).
+This section summarises the important Linux commands that will be useful during the practical session. In case you are very interested in learning about Linux command-line operation, you may want to go through an [online tutorial course](https://rnabio.org/module-00-setup/0000/08/01/Unix/), but this is entirely optional.
 
 **Command: Show present working directory**
 ```bash
