@@ -94,12 +94,6 @@ bwa mem -t 4 -M ~/Ref/ucsc.hg19.fasta 17H1220080_1_trimmed_paired.fq.gz 17H12200
 ```bash
 gatk SortSam -I 17H1220080.sam -O 17H1220080_sorted.bam --SORT_ORDER coordinate
 ```
-*Inspect content of SAM and BAM files
-
-**Inspecting a BAM file**
-```bash
-samtools view 17H1220080_BR.bam | less -S
-```
 
 **Collect statistics from BAM file**
 Determine mappable read number:
@@ -113,6 +107,13 @@ gatk AddOrReplaceReadGroups -I 17H1220080_sorted.bam -O 17H1220080_RG.bam --RGID
 gatk MarkDuplicates -I 17H1220080_RG.bam -O 17H1220080_MD.bam  -M ./stats/17H1220080_MD.stats --CREATE_INDEX true
 gatk BaseRecalibrator -R ~/Ref/ucsc.hg19.fasta -I 17H1220080_MD.bam -L ~/Ref/myeloid-targets.interval_list -ip 50 --known-sites ~/Ref/dbsnp_138.hg19.vcf --known-sites ~/Ref/Mills_and_1000G_gold_standard.indels.hg19.vcf -O 17H1220080_recal_data.table
 gatk ApplyBQSR -R ~/Ref/ucsc.hg19.fasta -I 17H1220080_MD.bam --bqsr-recal-file 17H1220080_recal_data.table -O 17H1220080_BR.bam
+```
+
+*Inspect content of SAM and BAM files
+
+**Inspecting a BAM file**
+```bash
+samtools view 17H1220080_BR.bam | less -S
 ```
 
 **Collect QC metrics**
