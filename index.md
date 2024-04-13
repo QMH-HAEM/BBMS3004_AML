@@ -108,7 +108,6 @@ gatk MarkDuplicates -I 17H1220080_RG.bam -O 17H1220080_MD.bam  -M ./stats/17H122
 gatk BaseRecalibrator -R ~/Ref/ucsc.hg19.fasta -I 17H1220080_MD.bam -L ~/Ref/myeloid-targets.interval_list -ip 50 --known-sites ~/Ref/dbsnp_138.hg19.vcf --known-sites ~/Ref/Mills_and_1000G_gold_standard.indels.hg19.vcf -O 17H1220080_recal_data.table
 gatk ApplyBQSR -R ~/Ref/ucsc.hg19.fasta -I 17H1220080_MD.bam --bqsr-recal-file 17H1220080_recal_data.table -O 17H1220080_BR.bam
 ```
-
 *Inspect content of SAM and BAM files
 
 **Inspecting a BAM file**
