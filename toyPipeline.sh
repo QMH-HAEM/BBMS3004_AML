@@ -16,6 +16,7 @@
 #
 # Created on 02/08/2019
 # Modified on 21/01/2021
+# Modified on 11/02/2025
 ###################################################################################
 
 set -e
@@ -30,8 +31,6 @@ fi
 
 # Define sample name
 SN=$1
-
-mkdir -p stats
 
 # Perform Trimmomatic
 cp -n ~/Programs/Trimmomatic-0.39/adapters/TruSeq3-PE-2.fa ./
@@ -48,14 +47,14 @@ bamtools stats -insert -in ${SN}_sorted.bam > ${SN}_sorted.bamtools.stats
 
 # Perform adjustment procedures
 gatk AddOrReplaceReadGroups -I ${SN}_sorted.bam -O ${SN}_RG.bam --RGID SPACE --RGLB panel --RGPL ILLUMINA --RGPU unit1 --RGSM ${SN}
-gatk MarkDuplicates -I ${SN}_RG.bam -O ${SN}_MD.bam  -M ./stats/${SN}_MD.stats --CREATE_INDEX true
+gatk MarkDuplicates -I ${SN}_RG.bam -O ${SN}_MD.bam  -M ./${SN}_MD.stats --CREATE_INDEX true
 gatk BaseRecalibrator -R ~/Ref/ucsc.hg19.fasta -I ${SN}_MD.bam -L ~/Ref/myeloid-targets.interval_list -ip 50 --known-sites ~/Ref/dbsnp_138.hg19.vcf --known-sites ~/Ref/Mills_and_1000G_gold_standard.indels.hg19.vcf -O ${SN}_recal_data.table
 gatk ApplyBQSR -R ~/Ref/ucsc.hg19.fasta -I ${SN}_MD.bam --bqsr-recal-file ${SN}_recal_data.table -O ${SN}_BR.bam
 
 # Collect QC metrics
-gatk CollectMultipleMetrics -I ${SN}_BR.bam -O ./stats/${SN}_GATK
-gatk CollectReadCounts -I ${SN}_BR.bam -L ~/Ref/myeloid-targets.interval_list --interval-merging-rule OVERLAPPING_ONLY --format TSV -O ./stats/${SN}.counts.tsv
-gatk CollectHsMetrics -I ${SN}_BR.bam -O ./stats/${SN}_hs_metrics.txt -R ~/Ref/ucsc.hg19.fasta -BI ~/Ref/myeloid-probe-coords.interval_list -TI ~/Ref/myeloid-targets.interval_list
+gatk CollectMultipleMetrics -I ${SN}_BR.bam -O ./${SN}_GATK
+gatk CollectReadCounts -I ${SN}_BR.bam -L ~/Ref/myeloid-targets.interval_list --interval-merging-rule OVERLAPPING_ONLY --format TSV -O ./${SN}.counts.tsv
+gatk CollectHsMetrics -I ${SN}_BR.bam -O ./${SN}_hs_metrics.txt -R ~/Ref/ucsc.hg19.fasta -BI ~/Ref/myeloid-probe-coords.interval_list -TI ~/Ref/myeloid-targets.interval_list
 
 # Perform variant calling by Mutect2
 gatk Mutect2 -R ~/Ref/ucsc.hg19.fasta -I ${SN}_BR.bam -tumor ${SN} -L ~/Ref/myeloid-targets.interval_list  -germline-resource ~/Ref/af-only-gnomad.myeloid.bedtools.vcf.gz --f1r2-tar-gz f1r2.tar.gz -O ${SN}_unfiltered.vcf
