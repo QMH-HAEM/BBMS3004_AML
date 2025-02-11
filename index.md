@@ -67,7 +67,6 @@ While we are trying to build a useable bioinformatic pipeline, but as some eleme
 **Change directory to the correct folder and create directory for QC statistics output**
 ```bash
 cd Documents
-mkdir stats
 ```
 
 Before the start of analysis, the usual step is to inspect the basic quality of the sequencing data. A common software to use is [FastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/). Since the output of FastQC is in html format and cannot be visualised in our current server setup, this step will be demonstrated instead. To inspect the output of the FastQC step for our data, please refer to [FastQC output for 17H1220080_1.fastq.gz](https://htmlpreview.github.io/?https://github.com/QMH-HAEM/BBMS3004_AML/blob/main/17H1220080_1_fastqc.html) and [FastQC output for 17H1220080_2.fastq.gz](https://htmlpreview.github.io/?https://github.com/QMH-HAEM/BBMS3004_AML/blob/main/17H1220080_2_fastqc.html).
@@ -104,7 +103,7 @@ bamtools stats -insert -in 17H1220080_sorted.bam > 17H1220080_sorted.bamtools.st
 **Perform adjustment procedures**
 ```bash
 gatk AddOrReplaceReadGroups -I 17H1220080_sorted.bam -O 17H1220080_RG.bam --RGID SPACE --RGLB panel --RGPL ILLUMINA --RGPU unit1 --RGSM 17H1220080
-gatk MarkDuplicates -I 17H1220080_RG.bam -O 17H1220080_MD.bam  -M ./stats/17H1220080_MD.stats --CREATE_INDEX true
+gatk MarkDuplicates -I 17H1220080_RG.bam -O 17H1220080_MD.bam  -M ./17H1220080_MD.stats --CREATE_INDEX true
 gatk BaseRecalibrator -R ~/Ref/ucsc.hg19.fasta -I 17H1220080_MD.bam -L ~/Ref/myeloid-targets.interval_list -ip 50 --known-sites ~/Ref/dbsnp_138.hg19.vcf --known-sites ~/Ref/Mills_and_1000G_gold_standard.indels.hg19.vcf -O 17H1220080_recal_data.table
 gatk ApplyBQSR -R ~/Ref/ucsc.hg19.fasta -I 17H1220080_MD.bam --bqsr-recal-file 17H1220080_recal_data.table -O 17H1220080_BR.bam
 ```
@@ -117,9 +116,9 @@ samtools view 17H1220080_BR.bam | less -S
 
 **Collect QC metrics**
 ```bash
-gatk CollectMultipleMetrics -I 17H1220080_BR.bam -O ./stats/17H1220080_GATK
-gatk CollectReadCounts -I 17H1220080_BR.bam -L ~/Ref/myeloid-targets.interval_list --interval-merging-rule OVERLAPPING_ONLY --format TSV -O ./stats/17H1220080.counts.tsv
-gatk CollectHsMetrics -I 17H1220080_BR.bam -O ./stats/17H1220080_hs_metrics.txt -R ~/Ref/ucsc.hg19.fasta -BI ~/Ref/myeloid-probe-coords.interval_list -TI ~/Ref/myeloid-targets.interval_list
+gatk CollectMultipleMetrics -I 17H1220080_BR.bam -O ./17H1220080_GATK
+gatk CollectReadCounts -I 17H1220080_BR.bam -L ~/Ref/myeloid-targets.interval_list --interval-merging-rule OVERLAPPING_ONLY --format TSV -O ./17H1220080.counts.tsv
+gatk CollectHsMetrics -I 17H1220080_BR.bam -O ./17H1220080_hs_metrics.txt -R ~/Ref/ucsc.hg19.fasta -BI ~/Ref/myeloid-probe-coords.interval_list -TI ~/Ref/myeloid-targets.interval_list
 ```
 
 **Perform variant calling by Mutect2**
