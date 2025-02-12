@@ -1,4 +1,4 @@
-# BBMS3004 Molecular Diagnostics Laboratory (2024)
+# BBMS3004 Molecular Diagnostics Laboratory (2025)
 ## Practical: Targeted Sequencing and Its Clinical Application in Acute Myeloid Leukaemia
 
 In this session. we will build a toy bioinformatic pipeline to get a feel of what it is like to practice bioinformatics using Linux. Our platform will be [Azure Lab Services](https://labs.azure.com/), which is a Microsoft cloud computing platform.
@@ -16,13 +16,13 @@ You will notice the virtual machine is "Stopped". Please do not start the machin
 Before we begin with our discussion, let's take the time to initialise our Azure Lab Services and set our passwords, as these will take some time before you can login to the system.
 
 1. Login to [My Virtual Machines](https://labs.azure.com/virtualmachines) in Azure Lab Services.
-2. Click the switch of the "NGS in AML" virtual machine to start it. This will take a few minutes. (If you are logging in for the first time, the system will ask you to set a new password. Proceed accordingly.)
+2. Click the switch of the "NGS in AML" virtual machine to start it. This will take a few minutes. (If you are logging in for the first time, the system will ask you to set a new password. Proceed accordingly and remember the password.)
 3. When the virtual machine shows "Running", click on the little monitor at the lower right hand corner of the virtual machine tab. Click "Connect via SSH". A link will be shown.
 4. Login to the virtual machine by PuTTY (for Windows) or in the terminal (for Mac OS, search for "Terminal" in Spotlight). For PuTTY, follow the instructions in the PowerPoint slides. For Mac terminal, simply paste the command (starting with "ssh ...") generated in Azure.
-5. When you finish using the virtual machine. Type "exit" into the Linux shell to quit the session AND click the switch of the "NGS in AML" in the webpage to stop it.
+5. When you finish using the virtual machine. Type "exit" into the Linux shell to quit the session AND click the switch of the "NGS in AML" in the webpage to stop it. Make sure you stop the virtual machine every time you have finished your work, as the machine will continue to run and consume your assigned time.
 
 ### Basic Linux Commands
-This section summarises the important Linux commands that will be useful during the practical session. In case you are very interested in learning about Linux command-line operation, you may want to go through an [online tutorial course](https://rnabio.org/module-00-setup/0000/08/01/Unix/), but this is entirely optional.
+This section summarises the important Linux commands that may be useful during the practical session. In case you are very interested in learning about Linux command-line operation, you may want to go through an [online tutorial course](https://rnabio.org/module-00-setup/0000/08/01/Unix/), but this is entirely optional.
 
 **Command: Show present working directory**
 ```bash
@@ -107,12 +107,14 @@ gatk MarkDuplicates -I 17H0510082_RG.bam -O 17H0510082_MD.bam  -M ./17H0510082_M
 gatk BaseRecalibrator -R ~/Ref/ucsc.hg19.fasta -I 17H0510082_MD.bam -L ~/Ref/myeloid-targets.interval_list -ip 50 --known-sites ~/Ref/dbsnp_138.hg19.vcf --known-sites ~/Ref/Mills_and_1000G_gold_standard.indels.hg19.vcf -O 17H0510082_recal_data.table
 gatk ApplyBQSR -R ~/Ref/ucsc.hg19.fasta -I 17H0510082_MD.bam --bqsr-recal-file 17H0510082_recal_data.table -O 17H0510082_BR.bam
 ```
-*Inspect content of SAM and BAM files
+*Inspect content of SAM or BAM files
 
 **Inspecting a BAM file**
 ```bash
 samtools view 17H0510082_BR.bam | less -S
 ```
+
+After inspecting the bam file, press "Q" to quit the inspection view and go back to the command prompt.
 
 **Collect QC metrics**
 ```bash
@@ -155,7 +157,7 @@ bash toyPipeline.sh 17H0510082
 
 ### Visualisation of Sequencing Data in IGV
 
-To visualise the sequencing data, you can download the [BAM file](https://github.com/QMH-HAEM/BBMS3004_AML/raw/main/17H0510082_BR.bam) produced after base recalibration, along with its [index file](https://github.com/QMH-HAEM/BBMS3004_AML/raw/main/17H0510082_BR.bai), and load the BAM file into [IGV](https://software.broadinstitute.org/software/igv/download) for visualisation. Please make sure you have selected hg19 human reference genome for visualisation. You may input the chromosome number and genomic coordinate of a variant in IGV to visualise it, e.g. for the IDH1 R132 variant, you can enter chr2:209113112.
+To visualise the sequencing data, you can download the [BAM file](https://github.com/QMH-HAEM/BBMS3004_AML/raw/main/17H0510082_BR.bam) produced after base recalibration, along with its [index file](https://github.com/QMH-HAEM/BBMS3004_AML/raw/main/17H0510082_BR.bai), and load the BAM file into [IGV](https://software.broadinstitute.org/software/igv/download) for visualisation. Please make sure you have selected hg19 human reference genome for visualisation. You may input the chromosome number and genomic coordinate of a variant in IGV to visualise it, e.g. for the NPM1 variant, you can enter chr5:170837546.
 
 ### After the session
 
